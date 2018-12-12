@@ -10,25 +10,25 @@ public class Deck
     public Deck(String[] ranks, String[] suits, int[] pointValues)
     {
         String rank;
-        String suit ;
+        String suit;
         int pointValue;
-        for(int i = 0; i < ranks.length; i++)
+        for(int i = 0; i < suits.length; i++)
         {
-            rank = ranks[i];
-            for(int j = 0; j < suits.length; j++)
+            suit = suits[i];
+            for(int j = 0; j < ranks.length; j++)
             {
-                suit = suits[j];
-                for(int k = 0; k < pointValues.length; k++)
-                {
-                    pointValue = pointValues[k];
-                    Card newCard = new Card(rank, suit, pointValue);
-                    deck.add(newCard);
-                    unDealt.add(newCard);
-                }
+                rank = ranks[j];
+                pointValue = pointValues[j];
+                Card newCard = new Card(rank, suit, pointValue);
+                deck.add(newCard);
+                unDealt.add(newCard);
             }
         }
     }
-
+    /**Card newCard = new Card(rank, suit, pointValue);
+    deck.add(newCard);
+    unDealt.add(newCard);
+    */
     public boolean isEmpty()
     {
         return deck.isEmpty();
@@ -47,6 +47,7 @@ public class Deck
         }
         Card dealtCard = deck.get(0);
         deck.remove(0);
+        unDealt.remove(0);
         dealt.add(dealtCard);
         return dealtCard;
     }
@@ -55,7 +56,7 @@ public class Deck
     {
         deck.addAll(dealt);
         dealt.clear();
-        for(int k = 51; k > 1; k--)
+        for(int k = deck.size()-1; k > 1; k--)
         {
             int r = (int)(Math.random()*k);
             Card temp = deck.get(k);

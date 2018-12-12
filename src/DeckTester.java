@@ -7,10 +7,23 @@ public class DeckTester
         int[] values = {2,1,6};
 
         Deck deck1 = new Deck(ranks, suits, values);
+        printDeck(deck1);
 
-        for(int i = 0; i < deck1.size(); i++)
+        deck1.shuffle();
+        printDeck(deck1);
+
+        Card dealtCard = deck1.deal();
+        System.out.println(dealtCard.toString() + "\n");
+        printDeck(deck1);
+
+    }
+
+    public static void printDeck(Deck deck)
+    {
+        for(int i = 0; i < deck.deck.size(); i++)
         {
-            System.out.println(deck1.deck.get(i).toString());
+            System.out.println(deck.deck.get(i).toString());
         }
+        System.out.println("\n");
     }
 }

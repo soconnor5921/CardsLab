@@ -6,7 +6,11 @@ public class DeckTester
         String[] suits = {"Giraffes", "Lions"};
         int[] values = {2,1,6};
 
-        Deck deck1 = new Deck(ranks, suits, values);
+        String[] ranks2 = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
+        String[] suits2 = {"Spades", "Hearts", "Diamonds", "Clubs"};
+        int[] values2 = {2,3,4,5,6,7,8,9,10,10,10,10,11};
+
+        Deck deck1 = new Deck(ranks2, suits2, values2);
         printDeck(deck1);
 
         deck1.shuffle();

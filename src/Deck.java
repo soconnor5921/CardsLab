@@ -7,15 +7,25 @@ public class Deck
     ArrayList<Card> unDealt = new ArrayList<>();
     ArrayList<Card> dealt = new ArrayList<>();
 
-    /**
-   FIX CREATING DECK
-     */
     public Deck(String[] ranks, String[] suits, int[] pointValues)
     {
+        String rank;
+        String suit ;
+        int pointValue;
         for(int i = 0; i < ranks.length; i++)
         {
-            Card newCard = new Card(ranks[i], suits[i], pointValues[i]);
-            deck.add(newCard);
+            rank = ranks[i];
+            for(int j = 0; j < suits.length; j++)
+            {
+                suit = suits[j];
+                for(int k = 0; k < pointValues.length; k++)
+                {
+                    pointValue = pointValues[k];
+                    Card newCard = new Card(rank, suit, pointValue);
+                    deck.add(newCard);
+                    unDealt.add(newCard);
+                }
+            }
         }
     }
 

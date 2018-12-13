@@ -10,16 +10,17 @@ public class DeckTester
         String[] suits2 = {"Spades", "Hearts", "Diamonds", "Clubs"};
         int[] values2 = {2,3,4,5,6,7,8,9,10,10,10,10,11};
 
-        Deck deck1 = new Deck(ranks2, suits2, values2);
+        Deck deck1 = new Deck(ranks, suits, values);
+        System.out.println("Unshuffled:");
         printDeck(deck1);
 
+        System.out.println("Shuffled:");
         deck1.shuffle();
         printDeck(deck1);
 
+        System.out.println("Dealt Card:");
         Card dealtCard = deck1.deal();
         System.out.println(dealtCard.toString() + "\n");
-        printDeck(deck1);
-
     }
 
     public static void printDeck(Deck deck)
